@@ -37,6 +37,14 @@ Before opening a PR:
 - `pnpm format:check`
 - `pnpm test`
 
+## Commit messages (optional)
+
+This repo includes a tiny commit template. Enable it locally:
+
+```bash
+git config commit.template .gitmessage
+```
+
 ## What to contribute
 
 - Documentation improvements (README + `docs/*.md`)
