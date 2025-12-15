@@ -141,7 +141,7 @@ export default function IndexPage() {
                   <div key={todo.id} className="flex items-center gap-3 rounded-md border bg-card px-3 py-2 shadow-sm">
                     <Checkbox
                       checked={todo.completed}
-                      onCheckedChange={(checked) => {
+                      onCheckedChange={(checked: boolean) => {
                         updateTodoMutation.mutate({ id: todo.id, completed: Boolean(checked) });
                       }}
                       disabled={updateTodoMutation.isPending}

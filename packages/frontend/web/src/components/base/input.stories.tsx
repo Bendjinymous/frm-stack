@@ -3,50 +3,70 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./input";
 
 export default {
-  title: "Web/Base/Input",
+  title: "Components/Base/Input",
   component: Input,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Base text input used across the design system. Supports all native `<input>` props and includes default Tailwind styling, focus rings, and invalid/disabled states.",
+        component: "A versatile input component with support for various input types and states.",
       },
     },
-  },
-  args: {
-    type: "text",
-    placeholder: "Type something…",
   },
 } satisfies Meta<typeof Input>;
 
 type Story = StoryObj<typeof Input>;
 
-export const Default: Story = {};
-
-export const WithValue: Story = {
+export const Default: Story = {
   args: {
-    defaultValue: "hello@example.com",
+    placeholder: "Enter text...",
   },
+};
+
+export const Types: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 w-full max-w-sm">
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-medium">Text</label>
+        <Input type="text" placeholder="Enter text" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-medium">Email</label>
+        <Input type="email" placeholder="Enter email" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-medium">Password</label>
+        <Input type="password" placeholder="Enter password" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-medium">Number</label>
+        <Input type="number" placeholder="Enter number" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-medium">Search</label>
+        <Input type="search" placeholder="Search..." />
+      </div>
+    </div>
+  ),
   parameters: {
     docs: {
       description: {
-        story: "Renders with an initial value via `defaultValue`.",
+        story: "Different input types.",
       },
     },
   },
 };
 
-export const Invalid: Story = {
+export const WithValue: Story = {
   args: {
-    "aria-invalid": true,
-    defaultValue: "not-an-email",
+    value: "Pre-filled value",
+    readOnly: true,
   },
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates invalid styling via `aria-invalid`.",
+        story: "Input with a pre-filled value.",
       },
     },
   },
@@ -54,13 +74,39 @@ export const Invalid: Story = {
 
 export const Disabled: Story = {
   args: {
+    placeholder: "Disabled input",
     disabled: true,
-    defaultValue: "Disabled",
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    placeholder: "Invalid input",
+    "aria-invalid": true,
+    defaultValue: "invalid@",
   },
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates disabled styling via the `disabled` prop.",
+        story: "Input in an invalid state.",
+      },
+    },
+  },
+};
+
+export const WithLabel: Story = {
+  render: () => (
+    <div className="flex flex-col gap-2 w-full max-w-sm">
+      <label htmlFor="input-with-label" className="text-sm font-medium">
+        Label
+      </label>
+      <Input id="input-with-label" placeholder="Enter value" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Input with an associated label.",
       },
     },
   },

@@ -6,7 +6,18 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!!**/node_modules",
+      "!!**/dist",
+      "!!**/out",
+      "!!**/build",
+      "!!**/storybook-static",
+      "!!**/.direnv",
+      "!!**/.turbo",
+      "!!**/.git"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -27,6 +38,7 @@
       "project": "recommended"
     },
     "rules": {
+      "a11y": "off",
       "recommended": true,
       "style": {
         "noNonNullAssertion": "info"
@@ -43,7 +55,9 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.astro"],
+      "includes": [
+        "**/*.astro"
+      ],
       "linter": {
         "rules": {
           "style": {

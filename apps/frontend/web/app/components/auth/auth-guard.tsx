@@ -2,7 +2,7 @@ import type * as React from "react";
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth } from "#providers/auth-provider";
-import { LoadingSpinner } from "@yourcompany/web/components/base/loading-spinner";
+import { Spinner } from "@yourcompany/web/components/base/spinner";
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -35,7 +35,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
   if (isLoading || (!isAuthenticated && !location.pathname.includes("/auth"))) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <LoadingSpinner size="lg" />
+        <Spinner className="size-10" />
       </div>
     );
   }

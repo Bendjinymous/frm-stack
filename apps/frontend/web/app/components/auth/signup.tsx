@@ -4,7 +4,7 @@ import { Button } from "@yourcompany/web/components/base/button";
 import { Input } from "@yourcompany/web/components/base/input";
 import { Label } from "@yourcompany/web/components/base/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@yourcompany/web/components/base/card";
-import { LoadingSpinner } from "@yourcompany/web/components/base/loading-spinner";
+import { Spinner } from "@yourcompany/web/components/base/spinner";
 
 interface SignUpProps {
   onSuccess?: () => void;
@@ -126,7 +126,7 @@ export const SignUp = ({ onSuccess, className }: SignUpProps) => {
           >
             {isLoading ? (
               <>
-                <LoadingSpinner size="sm" />
+                <Spinner className="size-4" />
                 Signing Up...
               </>
             ) : (

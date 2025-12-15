@@ -10,12 +10,15 @@
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
-    "components": "#/components",
-    "utils": "#/lib/utils",
-    "ui": "#/components/base",
-    "lib": "#/lib",
-    "hooks": "#/hooks"
+    "components": "#components",
+    "utils": "#lib/utils",
+    "ui": "#components/base",
+    "lib": "#lib",
+    "hooks": "#hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {
+    "@basecn": "https://basecn.dev/r/{name}.json"
+  }
 }
