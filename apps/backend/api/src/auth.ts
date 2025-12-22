@@ -20,7 +20,19 @@ function createAuthConfig(): ReturnType<typeof betterAuth> {
 
   return betterAuth({
     ...baseConfig,
-    trustedOrigins: appConfig.trustedOrigins,
+    trustedOrigins:
+      appConfig.env !== "dev"
+        ? appConfig.trustedOrigins
+        : [
+            ...appConfig.trustedOrigins,
+            ...[
+              "exp://*/*", // Trust all Expo development URLs
+              "exp://10.0.0.*:*/*", // Trust 10.0.0.x IP range
+              "exp://192.168.*.*:*/*", // Trust 192.168.x.x IP range
+              "exp://172.*.*.*:*/*", // Trust 172.x.x.x IP range
+              "exp://localhost:*/*", // Trust localhost
+            ],
+          ],
     databaseHooks: {
       user: {
         create: {

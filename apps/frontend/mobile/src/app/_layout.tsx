@@ -8,7 +8,7 @@ import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import { useColorScheme } from "#hooks/use-color-scheme";
 import { ORPCProvider } from "#providers/orpc-provider";
 import { SessionProvider } from "#providers/session-provider";
-import { getConfig } from "#lib/config";
+import { getConfig, type AppConfig } from "#lib/config";
 import { initAuthClient } from "#lib/auth";
 
 export const unstable_settings = {
@@ -17,7 +17,7 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [config, setConfig] = useState<{ apiUrl: string; authUrl: string } | null>(null);
+  const [config, setConfig] = useState<AppConfig | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -36,7 +36,6 @@ export default function RootLayout() {
         <Text style={styles.errorHint}>
           Make sure you have a .env file with:{"\n"}
           EXPO_PUBLIC_API_URL{"\n"}
-          EXPO_PUBLIC_AUTH_URL
         </Text>
       </View>
     );
@@ -51,7 +50,7 @@ export default function RootLayout() {
     );
   }
 
-  initAuthClient(config.authUrl);
+  initAuthClient(config.apiUrl);
 
   return (
     <ORPCProvider apiUrl={config.apiUrl}>

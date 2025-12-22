@@ -4,6 +4,7 @@ import { customSessionClient } from "better-auth/client/plugins";
 import type { Auth } from "@yourcompany/api/auth";
 import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
+import { getConfig } from "./config";
 
 // Must match backend's `advanced.cookiePrefix`
 const COOKIE_PREFIX = "yourcompany";
@@ -21,13 +22,15 @@ export type AuthUser = __authClientType["$Infer"]["Session"]["user"];
 
 let client: AuthClient | null = null;
 
+export const { signIn, signUp, signOut, resetPassword, changeEmail, changePassword, getSession } =
+  getAuthClient();
+
 export function initAuthClient(authUrl: string): AuthClient {
   if (client) return client;
 
   client = createAuthClient({
     baseURL: authUrl,
     plugins: [
-      // @ts-expect-error - expoClient plugin is not typed correctly
       expoClient({
         scheme: "mobile", // Must match the scheme in app.json
         cookiePrefix: COOKIE_PREFIX, // Must match backend's advanced.cookiePrefix
@@ -43,50 +46,13 @@ export function initAuthClient(authUrl: string): AuthClient {
 
 export function getAuthClient(): AuthClient {
   if (!client) {
-    throw new Error(
-      "Auth client not initialized. Call initAuthClient(authUrl) before using auth helpers."
-    );
+    client = initAuthClient(getConfig().apiUrl);
   }
   return client;
 }
 
-export const signIn = {
-  email: (...args: Parameters<AuthClient["signIn"]["email"]>) =>
-    getAuthClient().signIn.email(...args),
-  social: (...args: Parameters<AuthClient["signIn"]["social"]>) =>
-    getAuthClient().signIn.social(...args),
-};
-
-export const signUp = {
-  email: (...args: Parameters<AuthClient["signUp"]["email"]>) =>
-    getAuthClient().signUp.email(...args),
-};
-
-export const signOut = (...args: Parameters<AuthClient["signOut"]>) =>
-  getAuthClient().signOut(...args);
-export const resetPassword = (...args: Parameters<AuthClient["resetPassword"]>) =>
-  getAuthClient().resetPassword(...args);
-export const changeEmail = (...args: Parameters<AuthClient["changeEmail"]>) =>
-  getAuthClient().changeEmail(...args);
-export const changePassword = (...args: Parameters<AuthClient["changePassword"]>) =>
-  getAuthClient().changePassword(...args);
-
-/** Refetch session from server */
-export const refetchSession = () => getAuthClient().getSession();
-
-function toDate(value: unknown): Date | null {
-  if (!value) return null;
-  if (value instanceof Date) return value;
-  if (typeof value === "number") return Number.isFinite(value) ? new Date(value) : null;
-  if (typeof value === "string") {
-    const parsed = new Date(value);
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
-  }
-  return null;
-}
-
 function isSessionExpired(session: AuthSession): boolean {
-  const expiresAt = toDate((session as any)?.session?.expiresAt);
+  const expiresAt = session.session.expiresAt;
   if (!expiresAt) return true;
   return expiresAt.getTime() <= Date.now();
 }

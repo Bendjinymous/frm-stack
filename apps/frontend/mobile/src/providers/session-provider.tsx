@@ -1,5 +1,5 @@
 import type { AuthSession } from "#lib/auth";
-import { getAuthClient, getCachedSession, refetchSession } from "#lib/auth";
+import { getAuthClient, getCachedSession, getSession } from "#lib/auth";
 import {
   createContext,
   useCallback,
@@ -26,11 +26,11 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
   const refresh = useCallback(async () => {
     setIsPending(true);
-    const result = await refetchSession();
+    const result = await getSession();
     if (result?.data) {
-      setData(result.data as AuthSession);
+      setData(result.data);
     } else {
-      const status = (result as any)?.error?.status;
+      const status = result?.error?.status;
       if (status === 401 || status === 403) {
         setData(null);
       } else {
