@@ -8,6 +8,7 @@ const apiConfigSchema = z.object({
   version: z.string().min(1, "VERSION is required").default("dev"),
   requestLogging: z.boolean().optional().default(false),
   baseServiceUrl: z.string().min(1, "BASE_SERVICE_URL is required"),
+  trustedOrigins: z.array(z.string()).min(1, "TRUSTED_ORIGINS is required"),
   cors: z.object({
     origins: z.array(z.string()).min(1, "CORS_ORIGINS is required"),
   }),
@@ -51,6 +52,7 @@ export const appConfig = apiConfigSchema.parse({
           }
         : undefined,
   },
+  trustedOrigins: process.env.TRUSTED_ORIGINS ? process.env.TRUSTED_ORIGINS.split(",") : [],
 });
 
 export const isDev = appConfig.env === "dev";

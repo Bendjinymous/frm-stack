@@ -7,6 +7,18 @@ module.exports = defineConfig([
   expoConfig,
   eslintPluginPrettierRecommended,
   {
-    ignores: ["dist/*"],
+    ignores: [
+      "**/node_modules/**",
+      "package.json",
+      "yarn.lock",
+      "**/ios/**",
+      "**/android/**",
+      "**/assets/**",
+      ".vscode",
+      ".expo-shared",
+      ".prettirrc",
+      ".eslintrc.js",
+      "dist/*",
+    ],
   },
 ]);

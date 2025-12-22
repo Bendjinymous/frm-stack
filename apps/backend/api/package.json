@@ -23,6 +23,7 @@
     "update:packages": "npx npm-check-updates -u"
   },
   "dependencies": {
+    "@better-auth/expo": "catalog:",
     "@hono/node-server": "catalog:",
     "@hono/zod-validator": "catalog:",
     "@orpc/server": "catalog:",
@@ -38,10 +39,10 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@yourcompany/configs": "workspace:*",
+    "@testcontainers/postgresql": "catalog:",
     "@types/node": "catalog:",
     "@types/pg": "catalog:",
-    "@testcontainers/postgresql": "catalog:",
+    "@yourcompany/configs": "workspace:*",
     "amaro": "catalog:",
     "pino-pretty": "catalog:",
     "testcontainers": "catalog:"

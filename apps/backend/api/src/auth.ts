@@ -1,5 +1,6 @@
 import { betterAuth, logger } from "better-auth";
 import { customSession } from "better-auth/plugins";
+import { expo } from "@better-auth/expo";
 import type { App } from "#app";
 import { appConfig } from "#config";
 import { logger as appLogger } from "#log";
@@ -19,6 +20,7 @@ function createAuthConfig(): ReturnType<typeof betterAuth> {
 
   return betterAuth({
     ...baseConfig,
+    trustedOrigins: appConfig.trustedOrigins,
     databaseHooks: {
       user: {
         create: {
@@ -38,6 +40,7 @@ function createAuthConfig(): ReturnType<typeof betterAuth> {
       },
     },
     plugins: [
+      expo(),
       customSession(async ({ user, session }) => {
         return {
           user,
@@ -74,6 +77,16 @@ export function getAuth(): AuthInstance {
 
 export const registerAuth = (app: App) => {
   const auth = getAuth();
+
+  // Workaround: some Expo/native requests arrive with `expo-origin` but missing/incorrect `origin`.
+  // Better Auth relies on `origin` for trusted origin checks, including in `auth.api.getSession()`.
+  app.use("*", async (c, next) => {
+    const expoOrigin = c.req.header("expo-origin");
+    if (expoOrigin && c.req.header("origin") !== expoOrigin) {
+      c.req.raw.headers.set("origin", expoOrigin);
+    }
+    await next();
+  });
 
   app.use("*", authMiddleware(auth));
 
