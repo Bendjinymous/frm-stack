@@ -4,7 +4,7 @@ import { logger } from "#log";
 import { appConfig } from "#config";
 import { createApp } from "#app";
 import { initAuth, registerAuth } from "#auth";
-import { registerORPC } from "#orpc";
+import { registerORPC } from "#routers/index";
 import { registerRoutes } from "#routers/index";
 import { router } from "#routers/index";
 import { cors } from "hono/cors";
